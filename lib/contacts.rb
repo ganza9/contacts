@@ -30,13 +30,4 @@ class Contact
       end
     end
   end
-
-
-  # def duplicate
-  #   @@list.each do |contact|
-  #     if self.first_name == contact.first_name && self.last_name == contact.last_name
-  #       return @@list = []
-  #     end
-  #   end
-  # end
 end
