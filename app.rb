@@ -21,5 +21,5 @@ post ('/output')do
   @zip = params.fetch('zip')
   attributes = {:first_name=> @first_name, :last_name=> @last_name, :job_title=> @job_title, :company=> @company, :type=> @type, :street_address=> @street_address, :city=> @city, :state=> @state, :zip=> @zip}
   @contact = Contact.new(attributes)
-  erb(:output)
+  erb(:details)
 end
