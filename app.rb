@@ -4,12 +4,12 @@ also_reload('lib/**/*.rb')
 require ('./lib/contacts')
 require ('pry')
 
-
 get ('/') do
+  @contacts = Contact.all
   erb(:input)
 end
 
-post ('/output')do
+post ('/')do
   @first_name = params.fetch('first_name')
   @last_name = params.fetch('last_name')
   @job_title = params.fetch('job_title')
@@ -21,5 +21,12 @@ post ('/output')do
   @zip = params.fetch('zip')
   attributes = {:first_name=> @first_name, :last_name=> @last_name, :job_title=> @job_title, :company=> @company, :type=> @type, :street_address=> @street_address, :city=> @city, :state=> @state, :zip=> @zip}
   @contact = Contact.new(attributes)
-  erb(:details)
+  @contact.save()
+  @contacts = Contact.all
+  erb(:input)
+end
+
+get('/output/:id') do
+  @contact = Contact.find(params[:id])
+  erb(:output)
 end

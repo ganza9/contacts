@@ -1,4 +1,6 @@
 class Contact
+  @@list = []
+  attr_reader(:first_name, :last_name, :job_title, :company, :type, :street_address, :city, :state, :zip, :id)
   def initialize(attributes)
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)
@@ -9,41 +11,32 @@ class Contact
     @city = attributes.fetch(:city)
     @state = attributes.fetch(:state)
     @zip = attributes.fetch(:zip)
+    @id = @@list.length + 1
   end
 
-  def first_name
-    @first_name
+  def self.all
+    @@list
   end
 
-  def last_name
-    @last_name
+  def save
+    @@list.push(self)
   end
 
-  def job_title
-    @job_title
+  def self.find(id)
+    contact_id = id.to_i()
+    @@list.each do |contact|
+      if contact.id == contact_id
+        return contact
+      end
+    end
   end
 
-  def company
-    @company
-  end
 
-  def type
-    @type
-  end
-
-  def street_address
-    @street_address
-  end
-
-  def city
-    @city
-  end
-
-  def state
-    @state
-  end
-
-  def zip
-    @zip
-  end
+  # def duplicate
+  #   @@list.each do |contact|
+  #     if self.first_name == contact.first_name && self.last_name == contact.last_name
+  #       return @@list = []
+  #     end
+  #   end
+  # end
 end
