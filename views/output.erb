@@ -10,5 +10,10 @@
   <p>  <b> State : </b><%= @contact.state %> </p>
   <p>  <b> Zip : </b><%= @contact.zip %> </p>
   <br>
+  <form action="/" method="post">
+    <label for="phone_number">Add Phone Number:</label>
+    <input type="text" name="phone_number" id="phone_number">
+  </form>
+  <br>
   <a href="/">Return to home</a>
 </div>

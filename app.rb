@@ -30,3 +30,7 @@ get('/output/:id') do
   @contact = Contact.find(params[:id])
   erb(:output)
 end
+
+post('/')do
+  @phone = Phone.new( )
+end

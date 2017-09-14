@@ -11,6 +11,7 @@ class Contact
     @city = attributes.fetch(:city)
     @state = attributes.fetch(:state)
     @zip = attributes.fetch(:zip)
+    @phone = []
     @id = @@list.length + 1
   end
 
